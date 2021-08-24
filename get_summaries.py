@@ -99,7 +99,8 @@ for k, (_, title, url, _, _) in enumerate(summary_infos):
         list_id = None
         candidate_lists = list(section.findAll("ul"))
         for candidate_id, candidate in enumerate(candidate_lists):
-            if 'class' in candidate.attrs and 'items' in candidate['class']:
+            #if 'class' in candidate.attrs and 'items' in candidate['class']:
+            if candidate.previous_sibling is not None and candidate.previous_sibling.name == "h3":
                 list_id = candidate_id + 1
                 break
 
