@@ -1,5 +1,5 @@
 from builtins import zip, str, range
-import pdb, os, csv, re, io
+import pdb, os, csv, re, io, time
 import urllib.request, urllib.error, urllib.parse
 from bs4 import BeautifulSoup
 from tqdm import tqdm
@@ -80,6 +80,8 @@ for k, (_, title, url, _, _) in enumerate(summary_infos):
     else:
         print('Found %s sections for %s.' % (len(section_urls), title))
 
+    time.sleep(10)
+    
     # Go over each section
     for index, section_url in enumerate(section_urls):
         output_fname = os.path.join(specific_summary_dir, str(index) + '.txt.utf8')
