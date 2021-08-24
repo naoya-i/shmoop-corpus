@@ -80,8 +80,6 @@ for k, (_, title, url, _, _) in enumerate(summary_infos):
     else:
         print('Found %s sections for %s.' % (len(section_urls), title))
 
-    time.sleep(10)
-    
     # Go over each section
     for index, section_url in enumerate(section_urls):
         output_fname = os.path.join(specific_summary_dir, str(index) + '.txt.utf8')
@@ -89,6 +87,8 @@ for k, (_, title, url, _, _) in enumerate(summary_infos):
             print('Found section: {}'.format(index))
             continue
 
+        time.sleep(1)
+    
         # Parse section to get bullet point text
         print('Parsing section: {} {}'.format(index, section_url))
         
